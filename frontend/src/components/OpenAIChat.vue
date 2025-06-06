@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>OpenAI Chat (o4-mini)</h3>
+      <h3>OpenAI Chat</h3>
       <div v-for="(msg, idx) in messages" :key="idx" class="msg">
         <b>{{ msg.role }}:</b> {{ msg.content }}
       </div>

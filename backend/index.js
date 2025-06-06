@@ -7,13 +7,6 @@ const { OpenAI } = require('openai');
 
 dotenv.config();
 
-const fs = require('fs');
-// console.log('env file exists:', fs.existsSync('.env'));
-
-// console.log('CLIENT_ID:', process.env.CLIENT_ID);
-// console.log('CLIENT_SECRET:', process.env.CLIENT_SECRET ? 'set' : 'NOT SET');
-// console.log('TENANT_ID:', process.env.TENANT_ID);
-
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -55,7 +48,8 @@ app.post('/api/openai-chat', async (req, res) => {
   const { messages } = req.body;
   try {
     const completion = await openai.chat.completions.create({
-      model: 'gpt-4o', // o4-mini相当
+      // model: 'gpt-4o-mini',
+      model: 'gpt-4.1-nano',
       messages,
     });
     res.json({ reply: completion.choices[0].message.content });
